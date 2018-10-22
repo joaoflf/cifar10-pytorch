@@ -31,7 +31,7 @@ loader_train = DataLoader(train_set, batch_size=64, sampler=ChunkSampler(NUM_TRA
 val_set = dset.CIFAR10('./datasets', train=True, download=True, transform=T.ToTensor())
 loader_val = DataLoader(val_set, batch_size=64, sampler=ChunkSampler(NUM_VAL, NUM_TRAIN))
 test_set = dset.CIFAR10('./datasets', train=False, download=True, transform=T.ToTensor())
-loader_val = DataLoader(test_set, batch_size=64)
+loader_test = DataLoader(test_set, batch_size=64)
 
 # class to flatten layers (eg. Conv to Linear)
 class Flatten(nn.Module):
@@ -125,3 +125,5 @@ print('Train Accuracy:')
 check_accuracy(model, loader_train)
 print('Validation Accuracy:')
 check_accuracy(model, loader_val)
+print('Test Accuracy:')
+check_accuracy(model, loader_test)
