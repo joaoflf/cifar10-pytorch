@@ -23,7 +23,8 @@ class ConvModule(nn.Module):
              )
     def forward(self, x):
         return self.model(x)
-#main model
+
+# main model
 class CifarCnn(nn.Module):
     def __init__(self):
         super().__init__()
